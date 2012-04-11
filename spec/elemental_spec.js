@@ -56,11 +56,10 @@ describe("Elemental", function(){
               }
           };
           var container = "<div><div data-behavior='Behave'></div></div>";
-          
           Elemental.addNamespace(My.App);
           Elemental.load(container);
           
-          expect(My.App.behave).toHaveBeenCalled();
+          expect(My.App.Behave).toHaveBeenCalled();
       }); 
    });
     
