@@ -39,4 +39,4 @@
         namespaces.push(namespace);
     };
 
-}).call(this);
+})();
