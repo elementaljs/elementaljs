@@ -47,5 +47,21 @@ describe("Elemental", function(){
           expect(Behavior.Second).toHaveBeenCalled();      
       });
    });
+   
+   describe("#addNamespace", function(){
+      it("should add a namespace then load from that namespace", function(){
+          My = {
+              App : {
+                  Behave: jasmine.createSpy('behave')
+              }
+          };
+          var container = "<div><div data-behavior='Behave'></div></div>";
+          
+          Elemental.addNamespace(My.App);
+          Elemental.load(container);
+          
+          expect(My.App.behave).toHaveBeenCalled();
+      }); 
+   });
     
 });
