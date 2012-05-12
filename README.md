@@ -40,6 +40,15 @@ It is possible to either use fully qualified function names, or you can tell Ele
 Then in your HTML, you can put the function name without the namespace.
 
 	<div data-behaviour="Behave"></div>
+	
+# Available Behaviours
+
+## Javascript enabled
+
+This behaviour adds a class of 'js' to the element it's included on. This is useful for stylesheets to target environments knowing that Javascript is enabled or not. For maximum benefit, include this behaviour on the body element.
+
+- Include the file in src/behaviors/javascript_enabled.js
+- Add 'Elemental.JavascriptEnabled' to the body element
 
 # Development
 
