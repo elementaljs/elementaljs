@@ -8,6 +8,7 @@
 
 paths:
   - src/*.js
+  - src/behaviors/*.js
 
 exclude_paths:
   - src/jquery*js
