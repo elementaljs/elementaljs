@@ -34,6 +34,12 @@
 
 <p>Currenty, elemental.js depends on jQuery and UnderscoreJS, we'll try and refactor these out, but in this early stage you'll need those too. Sorry.</p>
 
+<h2>Rails Gem</h2>
+
+<p>In order to use in Rails, a Gem is available which integrates with the asset pipeline.</p>
+
+<p>gem 'elementaljs-rails'</p>
+
 <h2>Running</h2>
 
 <p>Drop the elemental.js file into your project and load the container you want to apply this library too. In most cases you'll want to apply to the whole document.</p>
@@ -92,7 +98,13 @@ $(document).ready(function() {
 <ul>
 <li>Include the file in src/behaviors/javascript_enabled.js</li>
 <li>Add 'Elemental.JavascriptEnabled' to the body element</li>
-</ul><h1>Development</h1>
+</ul><h2>Reload element</h2>
+
+<p>This behavior will hit the server on the current URI with a header, x-pjax=true. It will then insert the response into the HTML of the element. </p>
+
+<p>Your server should only return the element which is being replace, and should use the x-pjax header to tell if it should do that.</p>
+
+<h1>Development</h1>
 
 <h2>Dependencies</h2>
 
