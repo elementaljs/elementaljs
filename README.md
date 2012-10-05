@@ -4,6 +4,12 @@
 
 Currenty, elemental.js depends on jQuery and UnderscoreJS, we'll try and refactor these out, but in this early stage you'll need those too. Sorry.
 
+## Rails Gem
+
+In order to use in Rails, a Gem is available which integrates with the asset pipeline.
+
+  gem 'elementaljs-rails'
+
 ## Running
 
 Drop the elemental.js file into your project and load the container you want to apply this library too. In most cases you'll want to apply to the whole document.
