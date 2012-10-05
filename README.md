@@ -62,6 +62,12 @@ This behavior adds a class of 'js' to the element it's included on. This is usef
 - Include the file in src/behaviors/javascript_enabled.js
 - Add 'Elemental.JavascriptEnabled' to the body element
 
+## Reload element
+
+This behavior will hit the server on the current URI with a header, x-pjax=true. It will then insert the response into the HTML of the element. 
+
+Your server should only return the element which is being replace, and should use the x-pjax header to tell if it should do that.
+
 # Development
 
 ## Dependencies
