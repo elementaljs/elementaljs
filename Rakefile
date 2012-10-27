@@ -9,3 +9,5 @@ desc 'Run all tasks required for a continuous integration build.'
 task 'ci' => ['jslint', 'jasmine:ci'] do
   
 end
+
+task :default => 'ci'
