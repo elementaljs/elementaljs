@@ -1,5 +1,8 @@
 # Getting Started
 
+[![Build Status](https://travis-ci.org/elementaljs/elementaljs.png?branch=master)](https://travis-ci.org/elementaljs/elementaljs)
+[![Dependency Status](https://gemnasium.com/elementaljs/elementaljs.png)](https://gemnasium.com/elementaljs/elementaljs)
+
 ## Dependencies
 
 Currenty, elemental.js depends on jQuery and UnderscoreJS, we'll try and refactor these out, but in this early stage you'll need those too. Sorry.
@@ -14,44 +17,44 @@ In order to use in Rails, a Gem is available which integrates with the asset pip
 
 Drop the elemental.js file into your project and load the container you want to apply this library too. In most cases you'll want to apply to the whole document.
 
-  (document).ready(function() {
-    Elemental.load(document);
-  });
+    (document).ready(function() {
+      Elemental.load(document);
+    });
 
 Then in any HTML, you can add a behavior through a data attribute.
 
-  <div data-behavior="Mybehavior"></div>
+    <div data-behavior="Mybehavior"></div>
 
 After load, ElementalJS will look for any elements with the data-behavior attribute and run the function named.  It will pass the containing element through to the behavior so that the function can apply behaviors directly to that element and it's children.
 
-  MyBehavior = function(element) {
-    alert(element);
-  }
+    MyBehavior = function(element) {
+      alert(element);
+    }
 
 The behavior names can be namespaced so you can have HTML that looks like:
 
-  <button data-behavior="My.App.ButtonClick"></button>
+    <button data-behavior="My.App.ButtonClick"></button>
 
 It is possible to either use fully qualified function names, or you can tell Elemental about a namespace where the function lives.
 
-  My = {
-    App: {
-      ButtonClick: function(element){
-        element.bind('click', function() {
-          alert('button was clicked');
-        });
+    My = {
+      App: {
+        ButtonClick: function(element){
+          element.bind('click', function() {
+            alert('button was clicked');
+          });
+        }
       }
-    }
-  };
-  Elemental.addNamespace(My.App);
+    };
+    Elemental.addNamespace(My.App);
 
-  $(document).ready(function() {
-    Elemental.load(document);
-  });
+    $(document).ready(function() {
+      Elemental.load(document);
+    });
 
 Then in your HTML, you can put the function name without the namespace.
 
-  <button data-behavior="ButtonClick"></button>
+    <button data-behavior="ButtonClick"></button>
 
 # Available Behaviors
 
@@ -97,12 +100,12 @@ Many Javascript applications will be loaded when the DOM has finished loading an
 
 You'll need bundler to install the Rubygem dependencies for the build process.
 
-  gem install bundler
-  bundle install --binstubs
+    gem install bundler
+    bundle install --binstubs
 
 When you're developing, run the following command to use binaries in the bin folder that bundler has installed there.
 
-  export PATH=`pwd`/bin:$PATH
+    export PATH=`pwd`/bin:$PATH
 
 ## Tests
 
@@ -110,7 +113,7 @@ When you're developing, run the following command to use binaries in the bin fol
 
 To get Jasmine up and running, run the following rake task
 
-  rake jasmine
+    rake jasmine
 
 Then point your browser to http://localhost:8888
 
@@ -118,7 +121,7 @@ Then point your browser to http://localhost:8888
 
 A rake task called 'ci' will run JSLint and Jasmine tests.
 
-  rake ci
+    rake ci
 
 # Contributing
 
