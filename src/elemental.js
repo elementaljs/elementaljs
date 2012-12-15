@@ -1,5 +1,5 @@
 (function(){
-    
+
     var root = this;
     var Elemental;
     if (typeof exports !== 'undefined') {
@@ -7,7 +7,7 @@
     } else {
         Elemental = root.Elemental = {};
     }
-    
+
     var namespaces = [root];
 
     Elemental.load = function(element){
@@ -17,24 +17,24 @@
             var behaviors = that.attr('data-behavior');
             _.each(behaviors.split(" "), function(behavior){
                 var namespaced = behavior.split(".");
-                
+
                 var fns = _.map(namespaces, function(namespace){
                     return _.reduce(namespaced, function(prev, next){
                         return prev[next];
-                    }, namespace);                    
+                    }, namespace);
                 });
-                
+
                 var fn = _.find(fns, function(fn){
                     return undefined !== fn;
                 });
-                
+
                 if (undefined !== fn) {
                     fn(that);
                 }
             });
         });
     };
-    
+
     Elemental.addNamespace = function(namespace){
         namespaces.push(namespace);
     };

@@ -12,4 +12,3 @@ Elemental.Reload = function(element){
     $.ajax(options);
   }, 30000);
 };
-
