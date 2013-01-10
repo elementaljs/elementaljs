@@ -12,7 +12,7 @@
 
     Elemental.load = function(element){
         var container = $(element);
-        container.find("*[data-behavior]").each(function(index, element){
+        container.find("*").andSelf().filter("[data-behavior]").each(function(index, element){
             var that = $(element);
             var behaviors = that.attr('data-behavior');
             _.each(behaviors.split(" "), function(behavior){

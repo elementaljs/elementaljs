@@ -31,6 +31,20 @@ describe("Elemental", function(){
           expect(Behavior.Another.AndAnother.First).toHaveBeenCalled();
       });
 
+      it("should load a behavior on the container element", function() {
+          bar = jasmine.createSpy('bar');
+          var container = "<div data-behavior='bar'> </div>";
+          Elemental.load(container);
+          expect(bar).toHaveBeenCalled();
+      });
+
+      it("should load a behavior nested deeply beneat the container element", function() {
+          baz = jasmine.createSpy('baz');
+          var container = "<div><div><div><div data-behavior='baz'> </div></div></div></div>";
+          Elemental.load(container);
+          expect(baz).toHaveBeenCalled();
+      });
+
       it("should not load a behaviour that does not exist", function(){
           var container = "<div><div data-behavior='doesNotExist'/></div>";
           Elemental.load(container);
