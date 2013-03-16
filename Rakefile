@@ -27,3 +27,5 @@ task :travis => ['jslint'] do
     raise "#{cmd} failed!" unless $?.exitstatus == 0
   end
 end
+
+task :default => [:ci]
