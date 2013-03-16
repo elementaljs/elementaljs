@@ -1,8 +1,19 @@
 require 'rake'
-require 'jasmine'
-require 'jslint/tasks'
 
-load 'jasmine/tasks/jasmine.rake'
+begin 
+  require 'jasmine'
+  load 'jasmine/tasks/jasmine.rake'
+rescue Object
+  puts "Jasmine not loaded.  Try running 'bundle install'."
+  exit(1)
+end
+
+begin
+  require 'jslint/tasks'
+rescue Object
+  puts "JSLint not loaded.  Try running 'bundle install'" 
+end
+
 JSLint.config_path = "config/jslint.yml"
 
 desc 'Run all tasks required for a continuous integration build.'
