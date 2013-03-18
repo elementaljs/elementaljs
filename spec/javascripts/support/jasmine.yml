@@ -38,6 +38,7 @@ stylesheets:
 #   - helpers/**/*.js
 #
 helpers:
+  - 'helpers/**/*.js'
 
 # spec_files
 #
@@ -50,6 +51,7 @@ helpers:
 #   - **/*[sS]pec.js
 #
 spec_files:
+  - '**/*[sS]pec.js'
 
 # src_dir
 #
