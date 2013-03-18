@@ -20,7 +20,7 @@
 
                 var fns = _.map(namespaces, function(namespace){
                     return _.reduce(namespaced, function(prev, next){
-                        return prev[next];
+                        return prev !== undefined ? prev[next] : undefined;
                     }, namespace);
                 });
 

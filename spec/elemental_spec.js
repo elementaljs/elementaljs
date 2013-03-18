@@ -75,6 +75,23 @@ describe("Elemental", function(){
 
           expect(My.App.Behave).toHaveBeenCalled();
       });
+
+      it('should support multiple namespaces', function(){
+        One = {
+          AppOne: jasmine.createSpy('behave')
+        };
+
+        Two = {
+          AppTwo: jasmine.createSpy('behaveAsWell')
+        };
+
+        var container = "<div><div data-behavior='Two.AppTwo One.AppOne'></div></div>";
+        Elemental.load(container);
+
+        expect(One.AppOne).toHaveBeenCalled();
+        expect(Two.AppTwo).toHaveBeenCalled();
+
+      });
    });
 
 });
