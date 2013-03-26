@@ -12,7 +12,6 @@ paths:
 
 exclude_paths:
   - src/jquery*js
-  - src/underscore*js
 
 
 # ------------ jslint options ------------

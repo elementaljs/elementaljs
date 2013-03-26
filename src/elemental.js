@@ -1,42 +1,43 @@
-(function(){
+(function(ns) {
 
-    var root = this;
-    var Elemental;
-    if (typeof exports !== 'undefined') {
-        Elemental = exports;
-    } else {
-        Elemental = root.Elemental = {};
-    }
+    var namespaces = [this];
 
-    var namespaces = [root];
+    var attachBehavior = function($element, behavior) {
+        var fn = namespaces;
 
-    Elemental.load = function(element){
-        var container = $(element);
-        container.find("*").andSelf().filter("[data-behavior]").each(function(index, element){
-            var that = $(element);
-            var behaviors = that.attr('data-behavior');
-            _.each(behaviors.split(" "), function(behavior){
-                var namespaced = behavior.split(".");
-
-                var fns = _.map(namespaces, function(namespace){
-                    return _.reduce(namespaced, function(prev, next){
-                        return prev !== undefined ? prev[next] : undefined;
-                    }, namespace);
-                });
-
-                var fn = _.find(fns, function(fn){
-                    return undefined !== fn;
-                });
-
-                if (undefined !== fn) {
-                    fn(that);
+        behavior.replace(/([^.]+)/g, function(object) {
+            if(fn === namespaces) {
+                for(var nextFn, index = 0; index < fn.length; ++index) {
+                    nextFn = fn[index][object];
+                    if(nextFn) {
+                        fn = nextFn;
+                        break;
+                    }
                 }
+            } else if(typeof fn === 'object') {
+                fn = fn[object];
+            }
+        });
+
+        if(typeof fn === 'function') {
+            return fn($element);
+        } else {
+            console.warn("elementalJS: Unable to find behavior:", behavior);
+        }
+    };
+
+    ns.load = function(container) {
+        $(container).find("*").andSelf().filter("[data-behavior]").each(function(index, element) {
+            var $element = $(element);
+            var behaviors = $element.data('behavior');
+            behaviors.replace(/([^ ]+)/g, function(behavior) {
+                attachBehavior($element, behavior);
             });
         });
     };
 
-    Elemental.addNamespace = function(namespace){
+    ns.addNamespace = function(namespace) {
         namespaces.push(namespace);
     };
 
-})();
+})(window.Elemental = {});
