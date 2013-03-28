@@ -5,7 +5,8 @@ describe("Elemental", function(){
       it("should load a single behaviour in the global namespace", function(){
           foo = jasmine.createSpy('foo');
           var container = "<div><div data-behavior='foo'></div></div>";
-          Elemental.load(container);
+          var elemental = new Elemental();
+          elemental.load(container);
           expect(foo).toHaveBeenCalled();
       });
 

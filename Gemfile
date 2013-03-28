@@ -5,4 +5,5 @@ group :development, :test do
   gem 'rake'
   gem 'jslint_on_rails'
   gem 'whitespace'
+  gem 'coffee-script'
 end
