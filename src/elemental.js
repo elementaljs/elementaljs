@@ -29,7 +29,7 @@
                 });
 
                 if (undefined !== fn) {
-                    fn(that);
+                    new fn(that);
                 }
             });
         });
