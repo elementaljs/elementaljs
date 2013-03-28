@@ -22,7 +22,9 @@
         if(typeof fn === 'function') {
             return fn($element);
         } else {
-            console.warn("elementalJS: Unable to find behavior:", behavior);
+            if (window.console && console.warn) {
+                console.warn("elementalJS: Unable to find behavior:", behavior);
+            }
         }
     };
 
