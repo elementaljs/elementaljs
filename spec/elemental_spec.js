@@ -38,7 +38,7 @@ describe("Elemental", function(){
           expect(bar).toHaveBeenCalled();
       });
 
-      it("should load a behavior nested deeply beneat the container element", function() {
+      it("should load a behavior nested deeply beneath the container element", function() {
           baz = jasmine.createSpy('baz');
           var container = "<div><div><div><div data-behavior='baz'> </div></div></div></div>";
           Elemental.load(container);
