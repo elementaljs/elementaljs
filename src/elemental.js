@@ -29,7 +29,15 @@
     };
 
     ns.load = function(container) {
-        $(container).find("*").andSelf().filter("[data-behavior]").each(function(index, element) {
+        var $selector;
+        if (container === document) {
+            $selector = $('[data-behavior]');
+        }
+        else {
+            $selector = $(container).find("*").andSelf().filter("[data-behavior]");
+        }
+
+        $selector.each(function(index, element) {
             var $element = $(element);
             var behaviors = $element.data('behavior');
             behaviors.replace(/([^ ]+)/g, function(behavior) {
