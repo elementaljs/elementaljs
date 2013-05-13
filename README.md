@@ -17,7 +17,7 @@ In order to use in Rails, a Gem is available which integrates with the asset pip
 
 Drop the elemental.js file into your project and load the container you want to apply this library too. In most cases you'll want to apply to the whole document.
 
-    (document).ready(function() {
+    $(document).ready(function() {
       Elemental.load(document);
     });
 
