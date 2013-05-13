@@ -38,11 +38,34 @@ describe("Elemental", function(){
           expect(bar).toHaveBeenCalled();
       });
 
-      it("should load a behavior nested deeply beneath the container element", function() {
-          baz = jasmine.createSpy('baz');
-          var container = "<div><div><div><div data-behavior='baz'> </div></div></div></div>";
-          Elemental.load(container);
-          expect(baz).toHaveBeenCalled();
+      describe("when the container is some specific DOM", function() {
+        it("should load a behavior nested deeply beneath the container element", function() {
+            baz = jasmine.createSpy('baz');
+            var container = "<div><div><div><div data-behavior='baz'> </div></div></div></div>";
+            Elemental.load(container);
+            expect(baz).toHaveBeenCalled();
+        });
+
+        it("should not load a behavior that is outside of the container element", function() {
+            baz = jasmine.createSpy('baz');
+            qux = jasmine.createSpy('qux');
+            var container = "<div data-behavior='baz'> </div>";
+            setFixtures("<div data-behavior='qux'> </div>");
+
+            Elemental.load(container);
+
+            expect(baz).toHaveBeenCalled();
+            expect(qux).not.toHaveBeenCalled();
+        });
+      });
+
+      describe("when the container is the document", function() {
+        it("should load a behavior nested deeply beneath the container element", function() {
+            buzz = jasmine.createSpy('buzz');
+            setFixtures("<div><div><div><div data-behavior='buzz'> </div></div></div></div>");
+            Elemental.load(document);
+            expect(buzz).toHaveBeenCalled();
+        });
       });
 
       it("should not load a behaviour that does not exist", function(){
