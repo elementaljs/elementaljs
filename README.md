@@ -80,7 +80,7 @@ There are four components of unobtrusive javascript
 - Usability
 - Graceful degradation
 - Accessibility
-- Seperation
+- Separation
 
 While three of the four components don't really affect this project, the forth, seperation of concern between the presentation layer and the Javascript, does.
 
