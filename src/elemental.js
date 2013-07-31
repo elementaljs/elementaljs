@@ -30,11 +30,10 @@
 
     ns.load = function(container) {
         var $selector;
-        if (container === document) {
-            $selector = $('[data-behavior]');
-        }
-        else {
-            $selector = $(container).find("*").andSelf().filter("[data-behavior]");
+        $selector = $('[data-behavior]', container)
+
+        if ($(container).data('behavior')) {
+            $selector = $selector.add(container);
         }
 
         $selector.each(function(index, element) {
