@@ -20,8 +20,8 @@ desc 'Run all tasks required for a continuous integration build.'
 task 'ci' => ['jslint', 'jasmine:ci'] do
 end
 
-task :travis => ['jslint'] do
-  ["rake jasmine:ci"].each do |cmd|
+task :travis do
+  ["rake jslint", "rake jasmine:ci"].each do |cmd|
     puts "Starting to run #{cmd}..."
     system("export DISPLAY=:99.0 && bundle exec #{cmd}")
     raise "#{cmd} failed!" unless $?.exitstatus == 0
