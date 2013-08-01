@@ -30,7 +30,7 @@
 
     ns.load = function(container) {
         var $selector;
-        $selector = $('[data-behavior]', container)
+        $selector = $('[data-behavior]', container);
 
         if ($(container).data('behavior')) {
             $selector = $selector.add(container);
