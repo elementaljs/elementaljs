@@ -71,6 +71,16 @@ This behavior will hit the server on the current URI with a header, x-pjax=true.
 
 Your server should only return the element which is being replace, and should use the x-pjax header to tell if it should do that.
 
+## Jquery plugin
+
+This will create a behavior for each of your jquery plugins.
+
+- Include the file in src/behaviors/jquery_plugin.js
+- Add "Elemental.$.#{name_of_plugin}" as a data-behavior to your element_of_choice
+- Optionally add a data-options hash with your_configuration
+
+This will call $(element_of_choice).name_of_plugin(your_configuration) so you don't need to create new data-behaviors for every out-of-the-box jquery plugin in your arsenal.
+
 # Why
 
 ## What about unobtrusive javascript?
