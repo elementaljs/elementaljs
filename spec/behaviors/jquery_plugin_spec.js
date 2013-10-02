@@ -16,6 +16,10 @@ describe("Jquery Plugin", function(){
     expect($('#testfixture').css('color')).toBe('rgb(107, 85, 47)');
   });
 
+  it("passes no options when there are none", function() {
+    var behavior = new Elemental.$.assertsnoargs($('#testfixture'));
+  });
+
   it("passes the right option through", function(){
     var behavior = new Elemental.$.greenify($('#testfixture2'));
     expect($('#testfixture2').css('color')).toBe('rgb(0, 255, 0)');
@@ -29,6 +33,7 @@ describe("Jquery Plugin", function(){
   var shade;
 
   var colorify = function(options) {
+    options = options || {};
     if ('color' in options) shade = options['color'];
     this.css( "color", shade );
     return this;
@@ -42,6 +47,10 @@ describe("Jquery Plugin", function(){
   $.fn.redify = function(options) {
     shade = "rgb(107, 85, 47)";
     return colorify.call(this, options);
+  };
+
+  $.fn.assertsnoargs = function() {
+    if (arguments.length > 0) throw "expected there to be no args";
   };
 
 }(jQuery));
