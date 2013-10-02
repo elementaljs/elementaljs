@@ -6,9 +6,14 @@ describe("Jquery Plugin", function(){
     setFixtures(plainFixture + optionsFixture);
   });
 
-  it("calls the appropriate jquery plugin", function(){
+  it("calls the greenify plugin", function(){
     var behavior = new Elemental.$.greenify($('#testfixture'));
     expect($('#testfixture').css('color')).toBe('rgb(85, 107, 47)');
+  });
+
+  it("calls the redify plugin", function(){
+    var behavior = new Elemental.$.redify($('#testfixture'));
+    expect($('#testfixture').css('color')).toBe('rgb(107, 85, 47)');
   });
 
   it("passes the right option through", function(){
@@ -21,12 +26,22 @@ describe("Jquery Plugin", function(){
 // example jquery plugin: http://learn.jquery.com/plugins/basic-plugin-creation/
 (function ($) {
 
-  var shade = "rgb(85, 107, 47)";
+  var shade;
 
-  $.fn.greenify = function(options) {
+  var colorify = function(options) {
     if ('color' in options) shade = options['color'];
     this.css( "color", shade );
     return this;
+  };
+
+  $.fn.greenify = function(options) {
+    shade = "rgb(85, 107, 47)";
+    return colorify.call(this, options);
+  }
+
+  $.fn.redify = function(options) {
+    shade = "rgb(107, 85, 47)";
+    return colorify.call(this, options);
   };
 
 }(jQuery));
