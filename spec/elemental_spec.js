@@ -38,6 +38,13 @@ describe("Elemental", function(){
           expect(bar).toHaveBeenCalled();
       });
 
+      it("should load behaviors on all top-level container elements", function() {
+          bar = jasmine.createSpy('bar');
+          var container = "<div data-behavior='bar'> </div>   <div data-behavior='bar'> </div>";
+          Elemental.load(container);
+          expect(bar.callCount).toEqual(2);
+      });
+
       describe("when the container is some specific DOM", function() {
         it("should load a behavior nested deeply beneath the container element", function() {
             baz = jasmine.createSpy('baz');

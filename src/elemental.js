@@ -29,12 +29,7 @@
     };
 
     ns.load = function(container) {
-        var $selector;
-        $selector = $('[data-behavior]', container);
-
-        if ($(container).data('behavior')) {
-            $selector = $selector.add(container);
-        }
+        var $selector = $('[data-behavior]', container).add($(container).filter('[data-behavior]'));
 
         $selector.each(function(index, element) {
             var $element = $(element);
