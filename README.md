@@ -104,6 +104,10 @@ Having the indication about what behaviors are applied to an element can also be
 
 Many Javascript applications will be loaded when the DOM has finished loading and will generally search the entire DOM for elements to attach events to. Using Elemental the element gets passed into the function that contains the behavior. This enables that function to search the DOM locally and reduce the chance of any changes to the DOM affecting the applications javascript.
 
+# Best Practices
+
+See [USAGE](https://github.com/elementaljs/elementaljs/blob/master/USAGE.md) for information on best practices and anti-patterns
+
 # Development
 
 ## Dependencies
@@ -140,3 +144,4 @@ Fork this project and create a new branch. Make the code changes including tests
 # Next Steps
 
 We will look to add common behaviors and refactor out the dependencies on jQuery and Underscore. We think it'd be better to create a separate project for common behaviors using different libraries, i.e. elemental-jquery.
+
