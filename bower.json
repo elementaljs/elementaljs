@@ -1,0 +1,16 @@
+{
+  "name": "elementaljs",
+  "version": "1.0.0",
+  "main": "src/elemental.js",
+  "ignore": [
+    "bin",
+    "config",
+    "spec"
+  ],
+  "dependencies": {
+    "jquery": "1.7.2"
+  },
+  "devDependencies": {
+    "jasmine": "1.3.2"
+  }
+}
