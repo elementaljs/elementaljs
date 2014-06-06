@@ -23,7 +23,7 @@ Drop the elemental.js file into your project and load the container you want to 
 
 Then in any HTML, you can add a behavior through a data attribute.
 
-    <div data-behavior="Mybehavior"></div>
+    <div data-behavior="MyBehavior"></div>
 
 After load, ElementalJS will look for any elements with the data-behavior attribute and run the function named.  It will pass the containing element through to the behavior so that the function can apply behaviors directly to that element and it's children.
 
