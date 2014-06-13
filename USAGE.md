@@ -55,11 +55,11 @@ function Widget1(element) {
 ```javascript
 function Widget1(element) {
     element.change(function() {
-        document.trigger('widget1-event');
+        $(document).trigger('widget1-event');
     });
 }
 function Widget2(element) {
-    document.bind('widget1-event', function() {
+    $(document).bind('widget1-event', function() {
         alert('Widget 1 said something!');
     });
 }
