@@ -1,5 +1,7 @@
 {
   "name": "elementaljs",
+  "description": "Add behaviour to your elements.",
+  "homepage": "https://github.com/elementaljs/elementaljs",
   "version": "1.0.0",
   "main": "src/elemental.js",
   "ignore": [
