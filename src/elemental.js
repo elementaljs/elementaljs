@@ -28,15 +28,23 @@
         }
     };
 
+    var attachBehaviorsToElement = function(element) {
+        var $element = $(element);
+        var behaviors = $element.data('behavior');
+        behaviors.replace(/([^ ]+)/g, function(behavior) {
+            attachBehavior($element, behavior);
+        });
+    };
+
+    ns.loadOnly = function(element) {
+        attachBehaviorsToElement(element);
+    };
+
     ns.load = function(container) {
         var $selector = $('[data-behavior]', container).add($(container).filter('[data-behavior]'));
 
         $selector.each(function(index, element) {
-            var $element = $(element);
-            var behaviors = $element.data('behavior');
-            behaviors.replace(/([^ ]+)/g, function(behavior) {
-                attachBehavior($element, behavior);
-            });
+            attachBehaviorsToElement(element);
         });
     };
 
