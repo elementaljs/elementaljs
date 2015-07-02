@@ -92,6 +92,17 @@ describe("Elemental", function(){
       });
    });
 
+   describe("#loadOnly", function(){
+      it("should only the behaviors on the target element", function(){
+          foo = jasmine.createSpy('qux');
+          foo = jasmine.createSpy('foo');
+          var container = "<div data-behavior='qux'><div data-behavior='foo'></div></div>";
+          Elemental.loadOnly(container);
+          expect(qux).toHaveBeenCalled();
+          expect(foo).not.toHaveBeenCalled();
+      });
+  });
+
    describe("#addNamespace", function(){
       it("should add a namespace then load from that namespace", function(){
           My = {
