@@ -11,15 +11,17 @@ Currenty, elemental.js depends on jQuery, we'll try and refactor these out, but 
 
 In order to use in Rails, a Gem is available which integrates with the asset pipeline.
 
-  gem 'elementaljs-rails'
+    gem 'elementaljs-rails'
 
 ## Running
 
-Drop the elemental.js file into your project and load the container you want to apply this library too. In most cases you'll want to apply to the whole document.
+Drop the elemental.js file into your project and load the container you want to apply this library to. In most cases you'll want to apply to the whole document.
 
     $(document).ready(function() {
       Elemental.load(document);
     });
+
+`Elemental.load()` loads the container itself, as well as any children elements.   `Elemental.loadOnly()` is also available, which _only_ loads the target container.
 
 Then in any HTML, you can add a behavior through a data attribute.
 
