@@ -45,6 +45,38 @@ describe("Elemental", function(){
           expect(bar.callCount).toEqual(2);
       });
 
+      it("should load the behavior as a function", function() {
+          var scope = null;
+          klass = function() {
+              scope = this;
+          };
+
+          var container = "<div><div><div><div data-behavior='klass'> </div></div></div></div>";
+          Elemental.load(container);
+          expect(scope).toEqual(window);
+      });
+
+      describe("when Elemental.options.classBased is true", function() {
+        beforeEach(function() {
+            Elemental.options.classBased = true;
+        });
+
+        afterEach(function() {
+            Elemental.options.classBased = false;
+        });
+
+        it("should load the behavior as a class using the new operator", function() {
+            var scope = null;
+            klass = function() {
+                scope = this;
+            };
+
+            var container = "<div><div><div><div data-behavior='klass'> </div></div></div></div>";
+            Elemental.load(container);
+            expect(scope).toNotEqual(window);
+        });
+      });
+
       describe("when the container is some specific DOM", function() {
         it("should load a behavior nested deeply beneath the container element", function() {
             baz = jasmine.createSpy('baz');
