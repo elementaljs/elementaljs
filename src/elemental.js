@@ -20,7 +20,11 @@
         });
 
         if(typeof fn === 'function') {
-            return fn($element);
+            if(ns.options.classBased) {
+                return new fn($element);
+            } else {
+                return fn($element);
+            }
         } else {
             if (window.console && console.warn) {
                 console.warn("elementalJS: Unable to find behavior:", behavior);
@@ -34,6 +38,10 @@
         behaviors.replace(/([^ ]+)/g, function(behavior) {
             attachBehavior($element, behavior);
         });
+    };
+
+    ns.options = {
+        classBased: false
     };
 
     ns.loadOnly = function(element) {
