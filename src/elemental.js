@@ -34,7 +34,7 @@
 
     var attachBehaviorsToElement = function(element) {
         var $element = $(element);
-        var behaviors = $element.data('behavior');
+        var behaviors = $element.data('behavior') || $element.data('behaviour');
         behaviors.replace(/([^ ]+)/g, function(behavior) {
             attachBehavior($element, behavior);
         });
@@ -49,9 +49,10 @@
     };
 
     ns.load = function(container) {
-        var $selector = $('[data-behavior]', container).add($(container).filter('[data-behavior]'));
+        var selector_name = '[data-behavior], [data-behaviour]';
+        var $behaviors = $(selector_name, container).add($(container).filter(selector_name));
 
-        $selector.each(function(index, element) {
+        $behaviors.each(function(index, element) {
             attachBehaviorsToElement(element);
         });
     };

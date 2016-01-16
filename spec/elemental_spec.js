@@ -2,14 +2,21 @@ describe("Elemental", function(){
 
    describe("#load", function(){
 
-      it("should load a single behaviour in the global namespace", function(){
+      it("should load a single behavior in the global namespace", function(){
           foo = jasmine.createSpy('foo');
           var container = "<div><div data-behavior='foo'></div></div>";
           Elemental.load(container);
           expect(foo).toHaveBeenCalled();
       });
 
-      it("should load a single namespaced behaviour", function(){
+      it("should load a single behaviour in the global namespace when using alternate spelling", function(){
+          foo = jasmine.createSpy('foo');
+          var container = "<div><div data-behaviour='foo'></div></div>";
+          Elemental.load(container);
+          expect(foo).toHaveBeenCalled();
+      });
+
+      it("should load a single namespaced behavior", function(){
           Behavior = {
               First: jasmine.createSpy('first')
           };
@@ -18,7 +25,7 @@ describe("Elemental", function(){
          expect(Behavior.First).toHaveBeenCalled();
       });
 
-      it("should load a single deep namespaced behaviour", function(){
+      it("should load a single deep namespaced behavior", function(){
            Behavior = {
                Another:{
                    AndAnother: {
@@ -107,12 +114,12 @@ describe("Elemental", function(){
         });
       });
 
-      it("should not load a behaviour that does not exist", function(){
+      it("should not load a behavior that does not exist", function(){
           var container = "<div><div data-behavior='doesNotExist'/></div>";
           Elemental.load(container);
       });
 
-      it("should load multiple behaviours", function(){
+      it("should load multiple behaviors", function(){
            Behavior = {
                First: jasmine.createSpy('first'),
                Second: jasmine.createSpy('second')
