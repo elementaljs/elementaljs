@@ -42,7 +42,7 @@ describe("Elemental", function(){
           bar = jasmine.createSpy('bar');
           var container = "<div data-behavior='bar'> </div>   <div data-behavior='bar'> </div>";
           Elemental.load(container);
-          expect(bar.callCount).toEqual(2);
+          expect(bar.calls.count()).toEqual(2);
       });
 
       it("should load the behavior as a function", function() {
@@ -73,7 +73,7 @@ describe("Elemental", function(){
 
             var container = "<div><div><div><div data-behavior='klass'> </div></div></div></div>";
             Elemental.load(container);
-            expect(scope).toNotEqual(window);
+            expect(scope).not.toEqual(window);
         });
       });
 
