@@ -94,13 +94,13 @@ There are four components of unobtrusive javascript
 - Accessibility
 - Separation
 
-While three of the four components don't really affect this project, the forth, seperation of concern between the presentation layer and the Javascript, does.
+While three of the four components don't really affect this project, the forth, separation of concern between the presentation layer and the Javascript, does.
 
-The [section on seperation of concerns on Wikipedia covers this concern well.](http://en.wikipedia.org/wiki/Unobtrusive_JavaScript#Separation_of_behavior_from_markup) This project is quite clearly encouraging the use of putting behavior into the presentation. What's different this time around?
+The [section on separation of concerns on Wikipedia covers this concern well.](http://en.wikipedia.org/wiki/Unobtrusive_JavaScript#Separation_of_behavior_from_markup) This project is quite clearly encouraging the use of putting behavior into the presentation. What's different this time around?
 
-Using this project or this pattern we are not expressively stating what events to fire upon (e.g. onclick or onchange), we are just defining a behavior that wraps this element. One of the concerns addressed in the seperation of concerns section in the Wikipedia article is ease of development but by defining small behaviors they canbe easily seperated into their own files which are easy to test. This reduces the concern about maintainablilty.
+Using this project or this pattern we are not expressively stating what events to fire upon (e.g. onclick or onchange), we are just defining a behavior that wraps this element. One of the concerns addressed in the separation of concerns section in the Wikipedia article is ease of development but by defining small behaviors they canbe easily separated into their own files which are easy to test. This reduces the concern about maintainablilty.
 
-Having the indication about what behaviors are applied to an element can also be useful in discoverability. With the seperation between presentation and behavior it can be difficult finding what code is being executed over a part of the DOM. With the behavior, you can narrow that down to a single file and get to where you need to be all that much quicker.
+Having the indication about what behaviors are applied to an element can also be useful in discoverability. With the separation between presentation and behavior it can be difficult finding what code is being executed over a part of the DOM. With the behavior, you can narrow that down to a single file and get to where you need to be all that much quicker.
 
 ## What about unobtrusive HTML?
 
