@@ -5,7 +5,7 @@
 
 ## Dependencies
 
-Currenty, elemental.js depends on jQuery, we'll try and refactor these out, but in this early stage you'll need those too. Sorry.
+Currenty, elemental.js depends on jQuery, we'll try and refactor this out, but in this early stage you'll need that too. Sorry.
 
 ## Rails Gem
 
@@ -145,5 +145,5 @@ Fork this project and create a new branch. Make the code changes including tests
 
 # Next Steps
 
-We will look to add common behaviors and refactor out the dependencies on jQuery and Underscore. We think it'd be better to create a separate project for common behaviors using different libraries, i.e. elemental-jquery.
+We will look to add common behaviors and refactor out the dependency on jQuery. We think it'd be better to create a separate project for common behaviors using different libraries, i.e. elemental-jquery.
 
