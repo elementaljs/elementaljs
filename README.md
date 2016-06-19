@@ -5,7 +5,7 @@
 
 ## Dependencies
 
-Currenty, elemental.js depends on jQuery, we'll try and refactor these out, but in this early stage you'll need those too. Sorry.
+Currenty, elemental.js depends on jQuery, we'll try and refactor this out, but in this early stage you'll need that too. Sorry.
 
 ## Rails Gem
 
@@ -27,7 +27,7 @@ Then in any HTML, you can add a behavior through a data attribute.
 
     <div data-behavior="MyBehavior"></div>
 
-After load, ElementalJS will look for any elements with the data-behavior attribute and run the function named.  It will pass the containing element through to the behavior so that the function can apply behaviors directly to that element and it's children.
+After load, ElementalJS will look for any elements with the data-behavior attribute and run the function named.  It will pass the containing element through to the behavior so that the function can apply behaviors directly to that element and its children.
 
     MyBehavior = function(element) {
       alert(element);
@@ -71,7 +71,7 @@ This behavior adds a class of 'js' to the element it's included on. This is usef
 
 This behavior will hit the server on the current URI with a header, x-pjax=true. It will then insert the response into the HTML of the element.
 
-Your server should only return the element which is being replace, and should use the x-pjax header to tell if it should do that.
+Your server should only return the element which is being replaced, and should use the x-pjax header to tell if it should do that.
 
 ## Jquery plugin
 
@@ -94,11 +94,11 @@ There are four components of unobtrusive javascript
 - Accessibility
 - Separation
 
-While three of the four components don't really affect this project, the forth, separation of concern between the presentation layer and the Javascript, does.
+While three of the four components don't really affect this project, the fourth, separation of concern between the presentation layer and the Javascript, does.
 
 The [section on separation of concerns on Wikipedia covers this concern well.](http://en.wikipedia.org/wiki/Unobtrusive_JavaScript#Separation_of_behavior_from_markup) This project is quite clearly encouraging the use of putting behavior into the presentation. What's different this time around?
 
-Using this project or this pattern we are not expressively stating what events to fire upon (e.g. onclick or onchange), we are just defining a behavior that wraps this element. One of the concerns addressed in the separation of concerns section in the Wikipedia article is ease of development but by defining small behaviors they canbe easily separated into their own files which are easy to test. This reduces the concern about maintainablilty.
+Using this project or this pattern we are not expressly stating what events to fire upon (e.g. onclick or onchange), we are just defining a behavior that wraps this element. One of the concerns addressed in the separation of concerns section in the Wikipedia article is ease of development but by defining small behaviors they canbe easily separated into their own files which are easy to test. This reduces the concern about maintainablilty.
 
 Having the indication about what behaviors are applied to an element can also be useful in discoverability. With the separation between presentation and behavior it can be difficult finding what code is being executed over a part of the DOM. With the behavior, you can narrow that down to a single file and get to where you need to be all that much quicker.
 
@@ -145,5 +145,5 @@ Fork this project and create a new branch. Make the code changes including tests
 
 # Next Steps
 
-We will look to add common behaviors and refactor out the dependencies on jQuery and Underscore. We think it'd be better to create a separate project for common behaviors using different libraries, i.e. elemental-jquery.
+We will look to add common behaviors and refactor out the dependency on jQuery. We think it'd be better to create a separate project for common behaviors using different libraries, i.e. elemental-jquery.
 
