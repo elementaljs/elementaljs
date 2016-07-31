@@ -1,0 +1,19 @@
+{
+  "name": "elementaljs",
+  "version": "1.0.0",
+  "description": "Add behavior to your elements.",
+  "main": "src/elemental.js",
+  "scripts": {
+    "test": "rake jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elementaljs/elementaljs.git"
+  },
+  "author": "Robbie Clutton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elementaljs/elementaljs/issues"
+  },
+  "homepage": "https://github.com/elementaljs/elementaljs#readme"
+}
